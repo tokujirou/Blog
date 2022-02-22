@@ -1,0 +1,3 @@
+.btn {
+  @apply bg-primary text-textc font-light text-lg rounded-md px-10 hover:bg-secondary m-2;
+}
