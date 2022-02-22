@@ -13,7 +13,7 @@ export const Header: VFC = () => {
         </div>
         <div className="inline-block xl:w-2/5 xl:text-center">
           <Button to="/">Home</Button>
-          <Button to="/">About</Button>
+          <Button to="/about">About</Button>
         </div>
       </div>
     </div>

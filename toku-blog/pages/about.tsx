@@ -1,13 +1,13 @@
-import type { NextPage } from "next";
+import { NextPage } from "next";
 import Head from "next/head";
 
-const Home: NextPage = () => {
+const about: NextPage = () => {
   return (
     <div>
       <Head>
-        <title>{"Toku's Blog"}</title>
+        <title>{"Toku's Blog About Page"}</title>
         <meta
-          name="Toku's Blog"
+          name="Toku's Blog About Page"
           content="This's blog written by Keisuke Tokunaga."
         />
         <link rel="Toku Icon" href="favicon.ico" type="image/x-icon" />
@@ -16,4 +16,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default about;
