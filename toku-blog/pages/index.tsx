@@ -29,7 +29,12 @@ type GetStaticProps = () => Promise<{
 export const getStaticProps: GetStaticProps = async () => {
   if (!process.env.NOTION_DATABASE_ID) {
     console.error("database_idが存在しません");
-    return null;
+    return {
+      props: {
+        database: null,
+      },
+      revalidate: 1,
+    };
   }
   const database = await getDataBase(process.env.NOTION_DATABASE_ID);
   return {
