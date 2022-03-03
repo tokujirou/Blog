@@ -1,5 +1,5 @@
 import { VFC } from "react";
-import BottomBtn from "../../public/bottombtn.svg";
+import BottomBtn from "../../../public/bottombtn.svg";
 
 export const Footer: VFC = () => {
   const scrollToTop = () => {

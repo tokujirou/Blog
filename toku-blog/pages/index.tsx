@@ -1,19 +1,41 @@
 import type { NextPage } from "next";
-import Head from "next/head";
+import { HomeHeadSection } from "../components/Home/HomeHeadSection";
+import { BlogsSection } from "../components/Home/BlogsSection";
+import { getBlock, getDataBase } from "../lib/notion";
+import { QueryDatabaseResponse } from "@notionhq/client/build/src/api-endpoints";
 
-const Home: NextPage = () => {
+export type Props = {
+  database: QueryDatabaseResponse | null;
+};
+
+const Home: NextPage<Props> = ({ database }) => {
   return (
-    <div>
-      <Head>
-        <title>{"Toku's Blog"}</title>
-        <meta
-          name="Toku's Blog"
-          content="This's blog written by Keisuke Tokunaga."
-        />
-        <link rel="Toku Icon" href="favicon.ico" type="image/x-icon" />
-      </Head>
-    </div>
+    <main>
+      <HomeHeadSection />
+      <BlogsSection database={database} />
+    </main>
   );
 };
 
 export default Home;
+
+type GetStaticProps = () => Promise<{
+  props: {
+    database: QueryDatabaseResponse | null;
+  };
+  revalidate: number;
+} | null>;
+
+export const getStaticProps: GetStaticProps = async () => {
+  if (!process.env.NOTION_DATABASE_ID) {
+    console.error("database_idが存在しません");
+    return null;
+  }
+  const database = await getDataBase(process.env.NOTION_DATABASE_ID);
+  return {
+    props: {
+      database,
+    },
+    revalidate: 1,
+  };
+};

@@ -1,7 +1,7 @@
 import { VFC } from "react";
-import { Button } from "../Common/Button";
-import { Title } from "./LayoutParts/Title";
-import { TitleDescription } from "./LayoutParts/TitleDescription";
+import { Button } from "../../Common/Button";
+import { Title } from "./Title";
+import { TitleDescription } from "./TitleDescription";
 
 export const Header: VFC = () => {
   return (
