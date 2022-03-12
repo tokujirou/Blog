@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
-import { HomeHeadSection } from "../components/Home/HomeHeadSection";
-import { BlogsSection } from "../components/Home/BlogsSection";
-import { getBlock, getDataBase } from "../lib/notion";
+import { HomeHeadSection } from "../components/PagesComponents/Home/HomeHeadSection";
+import { BlogsSection } from "../components/PagesComponents/Home/BlogsSection";
+import { getDataBase } from "../lib/notion";
 import { QueryDatabaseResponse } from "@notionhq/client/build/src/api-endpoints";
 
 export type Props = {

@@ -1,5 +1,5 @@
 import { NextPage } from "next";
-import { AboutHeadSection } from "../components/About/AboutHeadSection";
+import { AboutHeadSection } from "../components/PagesComponents/About/AboutHeadSection";
 
 const about: NextPage = () => {
   return (

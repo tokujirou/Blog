@@ -8,10 +8,10 @@ export const getDataBase = async (
   database_id: string
 ): Promise<QueryDatabaseResponse | null> => {
   try {
-    const response = await notion.databases.query({
+    const res = await notion.databases.query({
       database_id,
     });
-    return response;
+    return res
   } catch (error: unknown) {
     if (APIResponseError.isAPIResponseError(error)) {
       console.error(error.code);
