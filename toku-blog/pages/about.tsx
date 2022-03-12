@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 import { AboutHeadSection } from "../components/PagesComponents/About/AboutHeadSection";
 
-const about: NextPage = () => {
+const About: NextPage = () => {
   return (
     <main>
       <AboutHeadSection />
@@ -9,4 +9,4 @@ const about: NextPage = () => {
   );
 };
 
-export default about;
+export default About;
