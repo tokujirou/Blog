@@ -18,8 +18,9 @@ export const BlogsSection: VFC<Props> = ({ database }) => {
       <SectionTitle title="Blogs" />
       <div className="flex flex-wrap justify-center mt-8">
         {database.results.map((blog, index) => {
+          const id = blog.id;
           return (
-            <Link key={index} href={`blog/${blog.id}`}>
+            <Link key={index} href={`blog/${id}`}>
               <div className="flex-wrap p-6 m-2 w-72 text-left border hover:border-secondary">
                 <p className="pt-2 text-lg font-bold text-textc">
                   {(blog as any).properties.Page.title[0].plain_text &&

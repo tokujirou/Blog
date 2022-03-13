@@ -11,7 +11,7 @@ export const getDataBase = async (
     const res = await notion.databases.query({
       database_id,
     });
-    return res
+    return res;
   } catch (error: unknown) {
     if (APIResponseError.isAPIResponseError(error)) {
       console.error(error.code);
@@ -29,7 +29,8 @@ export const getBlock = async (blockId: string) => {
   const blocks = [];
   let cursor;
   while (true) {
-    const { results, next_cursor }: any = await notion.blocks.children.list({
+    //@ts-ignore
+    const { results, next_cursor } = await notion.blocks.children.list({
       start_cursor: cursor,
       block_id: blockId,
     });
