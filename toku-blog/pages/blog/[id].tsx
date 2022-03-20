@@ -3,10 +3,6 @@ import { BlogHeadSection } from "../../components/PagesComponents/Blog/BlogHeadS
 import { BlogSection } from "../../components/PagesComponents/Blog/BlogSection";
 import { getBlock, getDataBase, getPage } from "../../lib/notion";
 const Blog: NextPage = ({ pageTitles, pageBodies }: any) => {
-  // console.log("title");
-  // console.log(pageTitles);
-  // console.log("body");
-  // console.log(pageBodies);
   return (
     <main>
       <BlogHeadSection />
