@@ -10,7 +10,7 @@ export const BlogSection: VFC<{ pageTitles: any; pageBodies: any }> = ({
       {pageBodies.map((block: any, index: number) => {
         return (
           <span className="" key={index}>
-            {renderBloks(block)}
+            {renderBlocks(block)}
           </span>
         );
       })}
@@ -41,7 +41,7 @@ const Block = ({ prop }: any): JSX.Element | null => {
   );
 };
 
-export const renderBloks = (block: any) => {
+export const renderBlocks = (block: any) => {
   const { type, id } = block;
   const value = block[type];
 
@@ -84,7 +84,7 @@ export const renderBloks = (block: any) => {
     case "bulleted_list_item":
     case "numbered_list_item":
       return (
-        <li>
+        <li className="text-textc">
           <Block prop={value.text} />
         </li>
       );
