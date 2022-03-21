@@ -14,7 +14,7 @@ export const AboutSection: VFC = () => {
       <SectionTitle title="About" />
       <div className="flex flex-wrap justify-center pt-14">
         <Image
-          src="/../public/toku.jpg"
+          src="/toku.jpg"
           width={350}
           height={350}
           alt="toku picture"
