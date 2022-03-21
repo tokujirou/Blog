@@ -91,7 +91,6 @@ const renderBlocks = (block: any) => {
     case "divider":
       return <hr key={id} />;
     case "image":
-      console.log(value);
       const src =
         value.type === "external" ? value.external.url : value.file.url;
       const caption = value.caption ? value.caption[0]?.plain_text : "";
