@@ -72,11 +72,8 @@ const renderBlocks = (block: any) => {
       );
     case "code":
       return (
-        <pre className="my-3">
-          <code
-            className="p-3 my-12 mx-2 text-rose-400 bg-gray-100 rounded"
-            key={id}
-          >
+        <pre className="p-5 my-3 bg-gray-100 rounded">
+          <code className="text-rose-400 " key={id}>
             {value.text[0].plain_text}
           </code>
         </pre>
