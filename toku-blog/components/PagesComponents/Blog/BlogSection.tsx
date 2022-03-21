@@ -41,7 +41,7 @@ const Block = ({ prop }: any): JSX.Element | null => {
   );
 };
 
-export const renderBlocks = (block: any) => {
+const renderBlocks = (block: any) => {
   const { type, id } = block;
   const value = block[type];
 
@@ -98,6 +98,20 @@ export const renderBlocks = (block: any) => {
       return (
         <div className="my-3">
           <img src={src} alt={caption} className="mx-auto max-h-full" />
+        </div>
+      );
+    case "to_do":
+      return (
+        <div>
+          <input
+            type="checkbox"
+            id={id}
+            checked={value.checked}
+            className="pt-10 mr-2"
+          />
+          <span className="text-textc">
+            <Block prop={value.text} />
+          </span>
         </div>
       );
     default:
