@@ -6,7 +6,7 @@ const Blog: NextPage = ({ pageTitles, pageBodies }: any) => {
   return (
     <main>
       <BlogHeadSection />
-      <hr />
+      <hr className="m-auto w-11/12" />
       <BlogSection pageTitles={pageTitles} pageBodies={pageBodies} />
     </main>
   );
