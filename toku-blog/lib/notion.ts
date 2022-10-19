@@ -1,14 +1,13 @@
 import { APIResponseError, Client } from "@notionhq/client";
-import { QueryDatabaseResponse } from "@notionhq/client/build/src/api-endpoints";
-const notion = new Client({
-  auth: process.env.NOTION_TOKEN,
-});
+const notion = process.env.NOTION_TOKEN
+  ? new Client({
+      auth: process.env.NOTION_TOKEN,
+    })
+  : null;
 
-export const getDataBase = async (
-  database_id: string
-): Promise<QueryDatabaseResponse | null> => {
+export const getDataBase = async (database_id: string) => {
   try {
-    const res = await notion.databases.query({
+    const res = await notion?.databases.query({
       database_id,
     });
     return res;
@@ -21,7 +20,7 @@ export const getDataBase = async (
 };
 
 export const getPage = async (page_id: string) => {
-  const response = await notion.pages.retrieve({ page_id });
+  const response = await notion?.pages.retrieve({ page_id });
   return response;
 };
 
@@ -29,7 +28,7 @@ export const getBlock = async (blockId: string) => {
   const blocks = [];
   let cursor;
   while (true) {
-    //@ts-ignore
+    //@ts-expect-error
     const { results, next_cursor } = await notion.blocks.children.list({
       start_cursor: cursor,
       block_id: blockId,

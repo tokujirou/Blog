@@ -8,7 +8,7 @@ export type Props = {
   database: QueryDatabaseResponse | null;
 };
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps = async () => {
   if (!process.env.NOTION_DATABASE_ID) {
     console.error("database_idが存在しません");
     return {
@@ -37,10 +37,3 @@ const Home: NextPage<Props> = ({ database }) => {
 };
 
 export default Home;
-
-type GetStaticProps = () => Promise<{
-  props: {
-    database: QueryDatabaseResponse | null;
-  };
-  revalidate: number;
-} | null>;

@@ -23,24 +23,27 @@ export const BlogsSection: VFC<Props> = ({ database }) => {
             <Link key={index} href={`blog/${id}`}>
               <div className="flex-wrap p-6 m-2 w-72 text-left border hover:border-secondary">
                 <p className="pt-2 text-lg font-bold text-textc">
-                  {(blog as any).properties.Page.title[0].plain_text &&
-                    (blog as any).properties.Page.title[0].plain_text}
+                  {(blog as any).properties.Page.title[0]?.plain_text &&
+                    (blog as any).properties.Page.title[0]?.plain_text}
                 </p>
-                <Image
-                  // TODO: anyをなんとかする。
-                  src={(blog as any).cover.external.url}
-                  alt=""
-                  width={288}
-                  height={180}
-                  loading="eager"
-                />
+                {(blog as any).cover?.external.url && (
+                  <Image
+                    // TODO: anyをなんとかする。
+                    src={(blog as any).cover?.external.url}
+                    alt=""
+                    width={288}
+                    height={180}
+                    loading="eager"
+                  />
+                )}
                 <p className="p-0 m-0 text-sm font-semibold text-textc">
-                  {(blog as any)?.properties.Tags.multi_select[0].name &&
-                    (blog as any).properties.Tags.multi_select[0].name}
+                  {(blog as any)?.properties.Tags.multi_select[0]?.name &&
+                    (blog as any).properties.Tags.multi_select[0]?.name}
                 </p>
                 <p className="text-sm font-medium text-textc">
-                  {(blog as any)?.properties.Subtitle.rich_text[0].plain_text &&
-                    (blog as any)?.properties.Subtitle.rich_text[0].plain_text}
+                  {(blog as any)?.properties.Subtitle.rich_text[0]
+                    ?.plain_text &&
+                    (blog as any)?.properties.Subtitle.rich_text[0]?.plain_text}
                 </p>
               </div>
             </Link>
